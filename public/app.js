@@ -10,7 +10,7 @@ learnjs.problemView = function(data){
 
 	function checkAnswer(){ 
 		var answer = view.find('.answer').val(); 
-		var test = problemData.code.replace('_', answer)+'; problem();';
+		var test = problemData.code.replace('__', answer)+'; problem();';
 		return eval(test);
 	}
 		
@@ -19,7 +19,7 @@ learnjs.problemView = function(data){
 			resultFlash.text('Correct!'); 
 		} else { 
 			resultFlash.text('Incorrect!'); 
-		}
+		};
 		return false;
 	}
 
@@ -32,13 +32,13 @@ learnjs.problemView = function(data){
 learnjs.showView = function(hash){
 	var routes = {
 		'#problem':learnjs.problemView
-	} 
+	}; 
 	var hashParts = hash.split('-'); 
 	var viewFn = routes[hashParts[0]]; 
 	if (viewFn){ 
 		$('.view-container').empty().append(viewFn(hashParts[1]));
 	}
-}
+};
 
 learnjs.appOnReady = function(){
 	window.onhashchange = function(){
